@@ -1,0 +1,212 @@
+{
+  "action_dim": 160,
+  "action_parameterization": "tanh_legacy_v1",
+  "action_slice": [
+    0,
+    160
+  ],
+  "morphology_dim": 54,
+  "morphology_layout": {
+    "blocks": [
+      {
+        "asset_id": "primitive/cube",
+        "body_name": "body_tool_cube_0_1",
+        "child_face": 0,
+        "connected_face_mask": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "dimension": 18,
+        "direct_handle_mount": true,
+        "endeffector_face": 4,
+        "frozen_parameter_indices": [
+          3,
+          4,
+          5,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "link_name": "link_tool_cube_0_1",
+        "node_id": 1,
+        "parameterization": "connected_hexahedron",
+        "parent_face": 5,
+        "parent_node_id": null,
+        "redmax_design_mask": 47,
+        "redmax_slices": [
+          {
+            "dimension": 12,
+            "group": "p1",
+            "start": 0,
+            "stop": 12
+          },
+          {
+            "dimension": 12,
+            "group": "p2",
+            "start": 48,
+            "stop": 60
+          },
+          {
+            "dimension": 294,
+            "group": "p3",
+            "start": 84,
+            "stop": 378
+          },
+          {
+            "dimension": 4,
+            "group": "p4",
+            "start": 858,
+            "stop": 862
+          },
+          {
+            "dimension": 1,
+            "group": "p6",
+            "start": 870,
+            "stop": 871
+          }
+        ],
+        "reference_length": 2.0999999046325684,
+        "start": 0,
+        "stop": 18
+      },
+      {
+        "asset_id": "primitive/small_cuboid",
+        "body_name": "body_tool_small_cuboid_0_2",
+        "child_face": 0,
+        "connected_face_mask": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true
+        ],
+        "dimension": 18,
+        "direct_handle_mount": false,
+        "endeffector_face": 4,
+        "frozen_parameter_indices": [],
+        "link_name": "link_tool_small_cuboid_0_2",
+        "node_id": 2,
+        "parameterization": "connected_hexahedron",
+        "parent_face": 4,
+        "parent_node_id": 1,
+        "redmax_design_mask": 47,
+        "redmax_slices": [
+          {
+            "dimension": 12,
+            "group": "p1",
+            "start": 12,
+            "stop": 24
+          },
+          {
+            "dimension": 12,
+            "group": "p2",
+            "start": 60,
+            "stop": 72
+          },
+          {
+            "dimension": 240,
+            "group": "p3",
+            "start": 378,
+            "stop": 618
+          },
+          {
+            "dimension": 4,
+            "group": "p4",
+            "start": 862,
+            "stop": 866
+          },
+          {
+            "dimension": 1,
+            "group": "p6",
+            "start": 871,
+            "stop": 872
+          }
+        ],
+        "reference_length": 1.406999945640564,
+        "start": 18,
+        "stop": 36
+      },
+      {
+        "asset_id": "primitive/small_cuboid",
+        "body_name": "body_tool_small_cuboid_0_3",
+        "child_face": 0,
+        "connected_face_mask": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true
+        ],
+        "dimension": 18,
+        "direct_handle_mount": false,
+        "endeffector_face": 4,
+        "frozen_parameter_indices": [],
+        "link_name": "link_tool_small_cuboid_0_3",
+        "node_id": 3,
+        "parameterization": "connected_hexahedron",
+        "parent_face": 4,
+        "parent_node_id": 1,
+        "redmax_design_mask": 47,
+        "redmax_slices": [
+          {
+            "dimension": 12,
+            "group": "p1",
+            "start": 24,
+            "stop": 36
+          },
+          {
+            "dimension": 12,
+            "group": "p2",
+            "start": 72,
+            "stop": 84
+          },
+          {
+            "dimension": 240,
+            "group": "p3",
+            "start": 618,
+            "stop": 858
+          },
+          {
+            "dimension": 4,
+            "group": "p4",
+            "start": 866,
+            "stop": 870
+          },
+          {
+            "dimension": 1,
+            "group": "p6",
+            "start": 872,
+            "stop": 873
+          }
+        ],
+        "reference_length": 1.406999945640564,
+        "start": 36,
+        "stop": 54
+      }
+    ],
+    "morphology_dim": 54,
+    "parameterization_id": "unified_connected_head_morphology",
+    "redmax_parameter_dim": 873
+  },
+  "morphology_layout_fingerprint": "d46a3f2aed4bd26817a1dd2b898e8332c08d60a3b6d46ab394a8e918bcff2cec",
+  "morphology_parameterization": "unified_connected_head_morphology",
+  "morphology_slice": [
+    160,
+    214
+  ],
+  "parameter_artifact_schema": "bilevel_joint_parameters",
+  "schema_version": 1,
+  "total_dim": 214
+}

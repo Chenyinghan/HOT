@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<redmax model="balls_transport_handle_scene">
+  <!-- Canonical Scoop capture/transport mission environment. -->
+  <option gravity="0 0 0" integrator="BDF2" timestep="1e-3" />
+  <solver_option acceptance_tol="3e-4" />
+  <ground normal="0 0 1" pos="0 0 -10" />
+  <default>
+    <general_primitive_contact damping="1e1" kn="1e3" kt="1e2" mu="0.8" />
+  </default>
+
+  <robot>
+    <link name="boxA_floor" design_params="0">
+      <joint name="boxA_floor_joint" type="fixed" pos="13.5 8.5 -8.8" quat="1 0 0 0" />
+      <body name="boxA_floor_body" type="cuboid" size="20.0 20.0 2.4" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.20 0.82 0.92 1" tool_contact="false" />
+      <link name="boxA_floor_visual">
+        <joint name="boxA_floor_visual_joint" type="fixed" pos="0 0 0" quat="1 0 0 0" />
+        <body name="boxA_floor_visual_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="9.5238095238095237 9.5238095238095237 1.1428571428571428" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.20 0.82 0.92 1" collision="false" ground_contact="false" />
+      </link>
+    </link>
+  </robot>
+  <robot>
+    <link name="boxA_wpx" design_params="0">
+      <joint name="boxA_wpx_joint" type="fixed" pos="23.825 8.5 -8.3" quat="1 0 0 0" />
+      <body name="boxA_wpx_body" type="cuboid" size="0.4 21.05 3.4" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.60 0.60 0.60 1" />
+      <link name="boxA_wpx_visual">
+        <joint name="boxA_wpx_visual_joint" type="fixed" pos="0 0 0" quat="1 0 0 0" />
+        <body name="boxA_wpx_visual_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="0.19047619047619047 10.023809523809524 1.6190476190476188" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.60 0.60 0.60 1" collision="false" ground_contact="false" />
+      </link>
+    </link>
+  </robot>
+  <robot>
+    <link name="boxA_wmx" design_params="0">
+      <joint name="boxA_wmx_joint" type="fixed" pos="3.175 8.5 -8.3" quat="1 0 0 0" />
+      <body name="boxA_wmx_body" type="cuboid" size="0.4 21.05 3.4" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.60 0.60 0.60 1" />
+      <link name="boxA_wmx_visual">
+        <joint name="boxA_wmx_visual_joint" type="fixed" pos="0 0 0" quat="1 0 0 0" />
+        <body name="boxA_wmx_visual_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="0.19047619047619047 10.023809523809524 1.6190476190476188" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.60 0.60 0.60 1" collision="false" ground_contact="false" />
+      </link>
+    </link>
+  </robot>
+  <robot>
+    <link name="boxA_wpy" design_params="0">
+      <joint name="boxA_wpy_joint" type="fixed" pos="13.5 18.825 -8.3" quat="1 0 0 0" />
+      <body name="boxA_wpy_body" type="cuboid" size="20.25 0.4 3.4" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.60 0.60 0.60 1" />
+      <link name="boxA_wpy_visual">
+        <joint name="boxA_wpy_visual_joint" type="fixed" pos="0 0 0" quat="1 0 0 0" />
+        <body name="boxA_wpy_visual_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="9.6428571428571423 0.19047619047619047 1.6190476190476188" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.60 0.60 0.60 1" collision="false" ground_contact="false" />
+      </link>
+    </link>
+  </robot>
+  <robot>
+    <link name="boxA_wmy" design_params="0">
+      <joint name="boxA_wmy_joint" type="fixed" pos="13.5 -1.825 -8.3" quat="1 0 0 0" />
+      <body name="boxA_wmy_body" type="cuboid" size="20.25 0.4 3.4" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.60 0.60 0.60 1" />
+      <link name="boxA_wmy_visual">
+        <joint name="boxA_wmy_visual_joint" type="fixed" pos="0 0 0" quat="1 0 0 0" />
+        <body name="boxA_wmy_visual_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="9.6428571428571423 0.19047619047619047 1.6190476190476188" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.60 0.60 0.60 1" collision="false" ground_contact="false" />
+      </link>
+    </link>
+  </robot>
+
+  <robot>
+    <link name="boxB_floor" design_params="0">
+      <joint name="boxB_floor_joint" type="fixed" pos="12 -8.5 -9.8" quat="1 0 0 0" />
+      <body name="boxB_floor_body" type="cuboid" size="8.3 8.3 0.4" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.72 0.72 0.72 1" />
+    </link>
+  </robot>
+  <robot>
+    <link name="boxB_wpx" design_params="0">
+      <joint name="boxB_wpx_joint" type="fixed" pos="15.95 -8.5 -8.1" quat="1 0 0 0" />
+      <body name="boxB_wpx_body" type="cuboid" size="0.4 8.3 3" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.72 0.72 0.72 1" />
+    </link>
+  </robot>
+  <robot>
+    <link name="boxB_wmx" design_params="0">
+      <joint name="boxB_wmx_joint" type="fixed" pos="8.05 -8.5 -8.1" quat="1 0 0 0" />
+      <body name="boxB_wmx_body" type="cuboid" size="0.4 8.3 3" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.72 0.72 0.72 1" />
+    </link>
+  </robot>
+  <robot>
+    <link name="boxB_wpy" design_params="0">
+      <joint name="boxB_wpy_joint" type="fixed" pos="12 -4.55 -8.1" quat="1 0 0 0" />
+      <body name="boxB_wpy_body" type="cuboid" size="7.5 0.4 3" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.72 0.72 0.72 1" />
+    </link>
+  </robot>
+  <robot>
+    <link name="boxB_wmy" design_params="0">
+      <joint name="boxB_wmy_joint" type="fixed" pos="12 -12.45 -8.1" quat="1 0 0 0" />
+      <body name="boxB_wmy_body" type="cuboid" size="7.5 0.4 3" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.72 0.72 0.72 1" />
+    </link>
+  </robot>
+
+  <robot>
+    <link name="ball3">
+      <joint name="ball3_joint" type="free3d-exp" pos="11.25 5.75 -6.55" quat="1 0 0 0" damping="5" />
+      <body name="ball3_body" type="sphere" contacts="scene/contacts/ball_half.txt" radius="0.5" pos="0 0 0" quat="1 0 0 0" density="0.5" rgba="0.85 0.25 0.25 1" />
+      <link name="ball3_visual">
+        <joint name="ball3_visual_joint" type="fixed" pos="0 0 0" quat="1 0 0 0" />
+        <body name="ball3_visual_body" type="abstract" mesh="scene/meshes/ball.obj" collision="false" scale="0.5 0.5 0.5" pos="0 0 0" quat="1 0 0 0" mass="1e-6" inertia="1e-6 1e-6 1e-6" rgba="0.85 0.25 0.25 1" />
+      </link>
+    </link>
+  </robot>
+  <robot>
+    <link name="ball4">
+      <joint name="ball4_joint" type="free3d-exp" pos="11.25 7.25 -6.55" quat="1 0 0 0" damping="5" />
+      <body name="ball4_body" type="sphere" contacts="scene/contacts/ball_half.txt" radius="0.5" pos="0 0 0" quat="1 0 0 0" density="0.5" rgba="0.85 0.25 0.25 1" />
+      <link name="ball4_visual">
+        <joint name="ball4_visual_joint" type="fixed" pos="0 0 0" quat="1 0 0 0" />
+        <body name="ball4_visual_body" type="abstract" mesh="scene/meshes/ball.obj" collision="false" scale="0.5 0.5 0.5" pos="0 0 0" quat="1 0 0 0" mass="1e-6" inertia="1e-6 1e-6 1e-6" rgba="0.85 0.25 0.25 1" />
+      </link>
+    </link>
+  </robot>
+
+  <contact>
+    <!-- Native sphere contacts are part of the Scoop mission scene.  Keeping
+         the balls on the general side gives RedMax a closed sphere surface;
+         boxA_floor_body remains transparent to every generated tool through
+         its tool_contact="false" declaration above. -->
+    <general_primitive_contact general_body="ball3_body" primitive_body="boxA_floor_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball4_body" primitive_body="boxA_floor_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball3_body" primitive_body="boxA_wmx_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball4_body" primitive_body="boxA_wmx_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball3_body" primitive_body="boxA_wmy_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball4_body" primitive_body="boxA_wmy_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball3_body" primitive_body="boxA_wpx_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball4_body" primitive_body="boxA_wpx_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball3_body" primitive_body="boxA_wpy_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball4_body" primitive_body="boxA_wpy_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball3_body" primitive_body="boxB_floor_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball4_body" primitive_body="boxB_floor_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball3_body" primitive_body="boxB_wmx_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball4_body" primitive_body="boxB_wmx_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball3_body" primitive_body="boxB_wmy_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball4_body" primitive_body="boxB_wmy_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball3_body" primitive_body="boxB_wpx_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball4_body" primitive_body="boxB_wpx_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball3_body" primitive_body="boxB_wpy_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="ball4_body" primitive_body="boxB_wpy_body" kn="50000" kt="2500" mu="1.5" damping="5000" smoothing="0.02" velocity_smoothing="0.05" />
+  </contact>
+
+  <variable>
+    <endeffector joint="boxA_floor_joint" pos="0 0 0" radius="0.2" />
+    <endeffector joint="boxB_floor_joint" pos="0 0 0" radius="0.2" />
+    <endeffector joint="ball3_joint" pos="0 0 0" radius="0.2" />
+    <endeffector joint="ball4_joint" pos="0 0 0" radius="0.2" />
+  </variable>
+</redmax>

@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hot.local/schemas/asset-catalog-v1.json",
+  "title": "HOT Asset Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "catalog_version",
+    "assets"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "catalog_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "catalog_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    }
+  },
+  "$defs": {
+    "resource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "dock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "barycentric"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "barycentric": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "facing_options": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          }
+        },
+        "edge": {
+          "type": "boolean"
+        },
+        "edge_tangent_axis": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "panel_normal_axis": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "edge_profile": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "dock_map": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[0-5]$"
+      },
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "$ref": "#/$defs/dock"
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "aliases",
+        "role",
+        "searchable",
+        "tags",
+        "resources",
+        "out_docks",
+        "in_docks"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aliases": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "searchable": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "resources": {
+          "type": "object",
+          "required": [
+            "mesh",
+            "cage",
+            "contacts",
+            "contact_ids",
+            "weights"
+          ],
+          "additionalProperties": {
+            "$ref": "#/$defs/resource"
+          }
+        },
+        "out_docks": {
+          "$ref": "#/$defs/dock_map"
+        },
+        "in_docks": {
+          "$ref": "#/$defs/dock_map"
+        },
+        "metadata": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

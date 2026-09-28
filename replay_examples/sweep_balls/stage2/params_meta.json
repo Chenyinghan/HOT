@@ -1,0 +1,96 @@
+{
+  "action_dim": 240,
+  "action_parameterization": "tanh_legacy_v1",
+  "action_slice": [
+    0,
+    240
+  ],
+  "morphology_dim": 18,
+  "morphology_layout": {
+    "blocks": [
+      {
+        "asset_id": "primitive/panel",
+        "body_name": "body_tool_panel_0_1",
+        "child_face": 0,
+        "connected_face_mask": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "dimension": 18,
+        "direct_handle_mount": true,
+        "endeffector_face": 4,
+        "frozen_parameter_indices": [
+          3,
+          4,
+          5,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "link_name": "link_tool_panel_0_1",
+        "node_id": 1,
+        "parameterization": "connected_hexahedron",
+        "parent_face": 5,
+        "parent_node_id": null,
+        "redmax_design_mask": 47,
+        "redmax_slices": [
+          {
+            "dimension": 12,
+            "group": "p1",
+            "start": 0,
+            "stop": 12
+          },
+          {
+            "dimension": 12,
+            "group": "p2",
+            "start": 24,
+            "stop": 36
+          },
+          {
+            "dimension": 384,
+            "group": "p3",
+            "start": 36,
+            "stop": 420
+          },
+          {
+            "dimension": 4,
+            "group": "p4",
+            "start": 420,
+            "stop": 424
+          },
+          {
+            "dimension": 1,
+            "group": "p6",
+            "start": 424,
+            "stop": 425
+          }
+        ],
+        "reference_length": 4.0,
+        "start": 0,
+        "stop": 18
+      }
+    ],
+    "morphology_dim": 18,
+    "parameterization_id": "unified_connected_head_morphology",
+    "redmax_parameter_dim": 425
+  },
+  "morphology_layout_fingerprint": "8da987591ea093493db157fa8e141bd27a4185a87e1e4e70a359c7cb1bec3bd3",
+  "morphology_parameterization": "unified_connected_head_morphology",
+  "morphology_slice": [
+    240,
+    258
+  ],
+  "parameter_artifact_schema": "bilevel_joint_parameters",
+  "schema_version": 1,
+  "total_dim": 258
+}

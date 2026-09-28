@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<redmax model="hammer_extract_nail_reference_model">
+  <option integrator="BDF2" timestep="1e-3" gravity="0. 0. 0." />
+  <ground pos="0 0 -10" normal="0 0 1" />
+  <default>
+    <general_primitive_contact kn="5e5" kt="2.5e3" mu="1.5" damping="3e2" />
+  </default>
+  <robot>
+    <link name="env_root">
+      <joint name="env_fixed" type="fixed" pos="10.5 0 -10" quat="1 0 0 0" />
+      <body name="board" type="cuboid" pos="8 0 1.0" quat="1 0 0 0" size="16 36 2.0" density="3.0" rgba="0.55 0.45 0.35 1" general_contact_resolution="6 10 2" />
+      <link name="nail_down_link">
+        <joint name="nail_down_joint" type="prismatic" axis="0 0 -1" pos="8 3 5.2" quat="1 0 0 0" damping="2.25e2" lim="0 2.5" lim_stiffness="5e6" />
+        <body name="nail_down" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="0.4 0.4 6.0" density="8.0" rgba="0.95 0.45 0.15 1" general_contact_resolution="2 2 6" />
+        <link name="nail_down_cap_link">
+          <joint name="nail_down_cap_joint" type="fixed" pos="0 0 3.2" quat="1 0 0 0" />
+          <body name="nail_down_cap" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="1.8 1.8 0.4" density="8.0" rgba="1.00 0.20 0.10 1" general_contact_resolution="4 4 2" />
+        </link>
+      </link>
+      <link name="nail_up_link">
+        <joint name="nail_up_joint" type="prismatic" axis="0 0 1" pos="8 -12 4.9" quat="1 0 0 0" damping="2.25e2" lim="0 2.5" lim_stiffness="5e6" />
+        <body name="nail_up" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="0.4 0.4 6.0" density="8.0" rgba="0.20 0.65 0.95 1" general_contact_resolution="2 2 6" />
+        <link name="nail_up_cap_link">
+          <joint name="nail_up_cap_joint" type="fixed" pos="0 0 3.2" quat="1 0 0 0" />
+          <body name="nail_up_cap" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="1.8 1.8 0.4" density="8.0" rgba="0.10 0.35 1.00 1" general_contact_resolution="4 4 2" />
+        </link>
+      </link>
+    </link>
+  </robot>
+  <robot>
+    <link name="freeform_root" design_params="0">
+      <!-- Search-equivalent Handle-centred xyz carrier. -->
+      <joint name="freeform_root_joint" type="translational" pos="12.3 0 0" quat="0 1 0 0" />
+      <body name="body_freeform_root" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="0.05 0.05 0.05" rgba="0 0 0 0" mass="0.0001" inertia="0.0001 0.0001 0.0001" collision="false" ground_contact="false" />
+      <link name="root_auxiliary_carrier" design_params="0">
+        <joint name="freeform_roll_joint" type="revolute" pos="0 0 0" quat="1 0 0 0" axis="1 0 0" damping="5" lim="-1.5707963267948966 1.5707963267948966" lim_stiffness="5e6" />
+        <body name="body_root_auxiliary_carrier" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="0.05 0.05 0.05" mass="0.0001" inertia="0.0001 0.0001 0.0001" rgba="0 0 0 0" collision="false" ground_contact="false" />
+        <link name="tip_universal_handle_0" design_params="0" asset_id="root/universal_handle" asset_role="fixed_root">
+        <joint name="joint_tip_universal_handle_0" type="fixed" pos="0 0 0" quat="0.707106781 0 0 0.707106781" />
+        <body name="body_tip_universal_handle_0" type="abstract" pos="0 0 0" quat="1 0 0 0" rgba="0.8 0.8 0.2 1" mesh="../../assets/library/meshes/universal_handle.obj" contacts="../../assets/library/contacts/universal_handle.txt" mass="0.0001" inertia="0.0001 0.0001 0.0001" asset_id="root/universal_handle" asset_role="fixed_root" collision="false" ground_contact="false" />
+        <link name="link_tool_cube_0_1" design_params="47" node_id="1" asset_role="head" asset_id="primitive/cube" start_function_group="true" planar_parent_face="3" planar_child_face="0" planar_dock_id="0" planar_child_dock_id="0" planar_facing="0" planar_parent_barycentric="0.5 0 0 0.5" planar_child_barycentric="0.25 0.25 0.25 0.25" planar_endeffector_face="4" planar_endeffector_barycentric="0.25 0.25 0.25 0.25" welded_interface="true" welded_socket_id="face3:dock0" welded_parent_kind="handle" welded_parent_id="tip_universal_handle_0">
+          <joint name="joint_tool_cube_0_1" type="fixed" pos="-1.5 -4 0" quat="0.499999999999 0.5 0.5 0.5" />
+          <body name="body_tool_cube_0_1" type="abstract" pos="0 0 0" quat="1 0 0 0" rgba="0.85 0.15 0.15 1.0" asset_role="head" asset_id="primitive/cube" mesh="../../assets/library/meshes/cube.obj" contacts="../../assets/library/contacts/cube.txt" mass="0.2" inertia="0.2 0.2 0.2" />
+          <link name="hammer_endeffector" design_params="1" function_group_root="1" function_group_leaves="1" function_group_leaf_count="1" planar_parent_face="4" planar_parent_barycentric="0.25 0.25 0.25 0.25">
+            <joint name="hammer_endeffector" type="fixed" pos="0 0 -1.05" quat="1 0 0 0" />
+            <body name="body_hammer_endeffector" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="0.1 0.1 0.1" mass="0.0001" inertia="0.0001 0.0001 0.0001" collision="false" ground_contact="false" />
+          </link>
+        </link>
+        <link name="link_tool_cube_0_2" design_params="47" node_id="2" asset_role="head" asset_id="primitive/cube" start_function_group="true" planar_parent_face="1" planar_child_face="0" planar_dock_id="0" planar_child_dock_id="0" planar_facing="0" planar_parent_barycentric="0.5 0 0 0.5" planar_child_barycentric="0.25 0.25 0.25 0.25" planar_endeffector_face="4" planar_endeffector_barycentric="0.25 0.25 0.25 0.25" welded_interface="true" welded_socket_id="face1:dock0" welded_parent_kind="handle" welded_parent_id="tip_universal_handle_0">
+          <joint name="joint_tool_cube_0_2" type="fixed" pos="1.5 -4 0" quat="0.499999999999 -0.5 -0.5 0.5" />
+          <body name="body_tool_cube_0_2" type="abstract" pos="0 0 0" quat="1 0 0 0" rgba="0.15 0.85 0.15 1.0" asset_role="head" asset_id="primitive/cube" mesh="../../assets/library/meshes/cube.obj" contacts="../../assets/library/contacts/cube.txt" mass="0.2" inertia="0.2 0.2 0.2" />
+          <link name="link_tool_small_cuboid_0_3" design_params="47" node_id="3" asset_role="head" asset_id="primitive/small_cuboid" planar_parent_face="4" planar_child_face="0" planar_dock_id="3" planar_child_dock_id="0" planar_facing="0" planar_parent_barycentric="0.416666666667 0.0833333333333 0.0833333333333 0.416666666667" planar_child_barycentric="0.25 0.25 0.25 0.25" planar_endeffector_face="4" planar_endeffector_barycentric="0.25 0.25 0.25 0.25">
+            <joint name="joint_tool_small_cuboid_0_3" type="fixed" pos="-0.699999999999 0 -1.7535" quat="1 0 0 0" />
+            <body name="body_tool_small_cuboid_0_3" type="abstract" pos="0 0 0" quat="1 0 0 0" rgba="0.15 0.15 0.85 1.0" asset_role="head" asset_id="primitive/small_cuboid" mesh="../../assets/library/meshes/small_cuboid.obj" contacts="../../assets/library/contacts/small_cuboid.txt" mass="0.2" inertia="0.2 0.2 0.2" />
+          </link>
+          <link name="link_tool_small_cuboid_0_4" design_params="47" node_id="4" asset_role="head" asset_id="primitive/small_cuboid" planar_parent_face="4" planar_child_face="0" planar_dock_id="4" planar_child_dock_id="0" planar_facing="0" planar_parent_barycentric="0.0833333333333 0.416666666667 0.416666666667 0.0833333333333" planar_child_barycentric="0.25 0.25 0.25 0.25" planar_endeffector_face="4" planar_endeffector_barycentric="0.25 0.25 0.25 0.25">
+            <joint name="joint_tool_small_cuboid_0_4" type="fixed" pos="0.699999999999 0 -1.7535" quat="1 0 0 0" />
+            <body name="body_tool_small_cuboid_0_4" type="abstract" pos="0 0 0" quat="1 0 0 0" rgba="0.85 0.65 0.15 1.0" asset_role="head" asset_id="primitive/small_cuboid" mesh="../../assets/library/meshes/small_cuboid.obj" contacts="../../assets/library/contacts/small_cuboid.txt" mass="0.2" inertia="0.2 0.2 0.2" />
+          </link>
+          <link name="extract_endeffector" design_params="1" function_group_root="2" function_group_leaves="3,4" function_group_leaf_count="2">
+            <joint name="extract_endeffector" type="fixed" pos="0 0 -1.7535" quat="1 0 0 0" />
+            <body name="body_extract_endeffector" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="0.1 0.1 0.1" mass="0.0001" inertia="0.0001 0.0001 0.0001" collision="false" ground_contact="false" />
+          </link>
+        </link>
+        </link>
+      </link>
+    </link>
+  </robot>
+  <contact>
+    <ground_contact body="nail_down" kn="5e6" kt="5e3" mu="0.6" damping="3e2" />
+    <ground_contact body="nail_down_cap" kn="5e6" kt="5e3" mu="0.6" damping="3e2" />
+    <ground_contact body="nail_up" kn="5e6" kt="5e3" mu="0.6" damping="3e2" />
+    <ground_contact body="nail_up_cap" kn="5e6" kt="5e3" mu="0.6" damping="3e2" />
+    <general_primitive_contact general_body="nail_down_cap" primitive_body="board" kn="1e6" kt="5e4" mu="0.8" damping="5e3" />
+    <general_primitive_contact general_body="nail_up_cap" primitive_body="board" kn="1e6" kt="5e4" mu="0.8" damping="5e3" />
+    <ground_contact body="body_tool_cube_0_1" kn="5e4" kt="1e3" mu="0.35" damping="5e2" />
+    <ground_contact body="body_tool_cube_0_2" kn="5e4" kt="1e3" mu="0.35" damping="5e2" />
+    <ground_contact body="body_tool_small_cuboid_0_3" kn="5e4" kt="1e3" mu="0.35" damping="5e2" />
+    <ground_contact body="body_tool_small_cuboid_0_4" kn="5e4" kt="1e3" mu="0.35" damping="5e2" />
+    <general_primitive_contact general_body="body_tool_cube_0_1" primitive_body="board" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_cube_0_1" primitive_body="nail_down" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_cube_0_1" primitive_body="nail_down_cap" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_cube_0_1" primitive_body="nail_up" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_cube_0_1" primitive_body="nail_up_cap" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_cube_0_2" primitive_body="board" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_cube_0_2" primitive_body="nail_down" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_cube_0_2" primitive_body="nail_down_cap" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_cube_0_2" primitive_body="nail_up" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_cube_0_2" primitive_body="nail_up_cap" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_3" primitive_body="board" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_3" primitive_body="nail_down" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_3" primitive_body="nail_down_cap" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_3" primitive_body="nail_up" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_3" primitive_body="nail_up_cap" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_4" primitive_body="board" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_4" primitive_body="nail_down" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_4" primitive_body="nail_down_cap" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_4" primitive_body="nail_up" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_4" primitive_body="nail_up_cap" kn="2e5" kt="1e4" mu="0.8" damping="3e3" smoothing="0.02" velocity_smoothing="0.05" />
+  </contact>
+  <variable>
+    <endeffector joint="nail_down_joint" pos="0 0 3.2" radius="0.2" />
+    <endeffector joint="nail_up_joint" pos="0 0 3.2" radius="0.2" />
+    <endeffector joint="hammer_endeffector" pos="0 0 0" radius="0.2" />
+    <endeffector joint="extract_endeffector" pos="0 0 0" radius="0.2" />
+  </variable>
+  <actuator>
+    <motor joint="freeform_root_joint" ctrl="position" ctrl_range="-5e4 5e4" P="2e3" D="2e2" />
+    <motor joint="freeform_roll_joint" ctrl="position" ctrl_range="-5e4 5e4" P="2e3" D="2e2" />
+  </actuator>
+</redmax>

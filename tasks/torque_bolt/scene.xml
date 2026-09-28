@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<redmax model="torque_scene">
+  <option integrator="BDF2" timestep="1e-3" gravity="0 0 0" />
+  <ground pos="0 0 -10" normal="0 0 1" />
+  <default>
+    <general_primitive_contact kn="1e3" kt="1e2" mu="0.8" damping="1e1" />
+  </default>
+
+  <!-- Mission-only scene. Bilevel adds the world-parented Handle root and the
+       searched one-function Head. -->
+  <robot>
+    <link name="wall" design_params="0">
+      <joint name="wall_joint" type="fixed" pos="25 0 -3.5" quat="1 0 0 0" />
+      <body name="wall_body" type="cuboid" size="0.6 2 13" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.55 0.55 0.55 1" />
+      <link name="nail">
+        <joint name="nail_joint" type="revolute" axis="1 0 0" pos="-2 0 3.5" quat="1 0 0 0" damping="12" />
+        <!-- The 0.6-wide square head leaves alignment clearance in the
+             two-extract reference.  The public
+             task itself constrains only one torque function marker. -->
+        <body name="nail_head" type="cuboid" size="0.6 0.6 0.6" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.9 0.3 0.1 1" />
+        <!-- Four collision-free side skins make rotation about X visible
+             without a separate fiducial point. -->
+        <link name="nail_head_pos_y_vis" design_params="0">
+          <joint name="nail_head_pos_y_vis_joint" type="fixed" pos="0 0.305 0" quat="1 0 0 0" />
+          <body name="nail_head_pos_y_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="0.285714285714 0.009523809524 0.285714285714" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.1 0.1 1" collision="false" ground_contact="false" />
+        </link>
+        <link name="nail_head_neg_y_vis" design_params="0">
+          <joint name="nail_head_neg_y_vis_joint" type="fixed" pos="0 -0.305 0" quat="1 0 0 0" />
+          <body name="nail_head_neg_y_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="0.285714285714 0.009523809524 0.285714285714" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.95 0.95 1" collision="false" ground_contact="false" />
+        </link>
+        <link name="nail_head_pos_z_vis" design_params="0">
+          <joint name="nail_head_pos_z_vis_joint" type="fixed" pos="0 0 0.305" quat="1 0 0 0" />
+          <body name="nail_head_pos_z_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="0.285714285714 0.285714285714 0.009523809524" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.85 0.1 1" collision="false" ground_contact="false" />
+        </link>
+        <link name="nail_head_neg_z_vis" design_params="0">
+          <joint name="nail_head_neg_z_vis_joint" type="fixed" pos="0 0 -0.305" quat="1 0 0 0" />
+          <body name="nail_head_neg_z_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="0.285714285714 0.285714285714 0.009523809524" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.85 0.1 0.85 1" collision="false" ground_contact="false" />
+        </link>
+        <link name="nail_rod">
+          <joint name="nail_rod_joint" type="fixed" pos="1 0 0" quat="1 0 0 0" />
+          <body name="nail_rod_body" type="cuboid" size="2.4 0.4 0.4" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.95 0.45 0.15 1" />
+          <link name="nail_rod_pos_y_vis" design_params="0">
+            <joint name="nail_rod_pos_y_vis_joint" type="fixed" pos="0 0.205 0" quat="1 0 0 0" />
+            <body name="nail_rod_pos_y_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="1.142857142857 0.009523809524 0.190476190476" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.1 0.1 1" collision="false" ground_contact="false" />
+          </link>
+          <link name="nail_rod_neg_y_vis" design_params="0">
+            <joint name="nail_rod_neg_y_vis_joint" type="fixed" pos="0 -0.205 0" quat="1 0 0 0" />
+            <body name="nail_rod_neg_y_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="1.142857142857 0.009523809524 0.190476190476" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.95 0.95 1" collision="false" ground_contact="false" />
+          </link>
+          <link name="nail_rod_pos_z_vis" design_params="0">
+            <joint name="nail_rod_pos_z_vis_joint" type="fixed" pos="0 0 0.205" quat="1 0 0 0" />
+            <body name="nail_rod_pos_z_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="1.142857142857 0.190476190476 0.009523809524" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.85 0.1 1" collision="false" ground_contact="false" />
+          </link>
+          <link name="nail_rod_neg_z_vis" design_params="0">
+            <joint name="nail_rod_neg_z_vis_joint" type="fixed" pos="0 0 -0.205" quat="1 0 0 0" />
+            <body name="nail_rod_neg_z_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="1.142857142857 0.190476190476 0.009523809524" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.85 0.1 0.85 1" collision="false" ground_contact="false" />
+          </link>
+        </link>
+      </link>
+    </link>
+  </robot>
+
+  <variable>
+    <endeffector joint="nail_joint" pos="0 0 0" radius="0" />
+    <endeffector joint="nail_joint" pos="1 0 0" radius="0" />
+  </variable>
+</redmax>

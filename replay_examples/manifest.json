@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "rtol": 1e-09,
+  "atol": 1e-09,
+  "tasks": {
+    "sweep_balls": {
+      "num_steps": 1800,
+      "sub_steps": 30,
+      "stages": {
+        "stage1": {
+          "objective": 20132.853432038984,
+          "rms_percent": 0.0
+        },
+        "stage2": {
+          "objective": 17431.391192273943,
+          "rms_percent": 5.500117967536943
+        }
+      }
+    },
+    "torque_bolt": {
+      "num_steps": 1200,
+      "sub_steps": 30,
+      "stages": {
+        "stage1": {
+          "objective": 22.099576847020842,
+          "rms_percent": 0.0
+        },
+        "stage2": {
+          "objective": 21.5363486504011,
+          "rms_percent": 1.5012649839447734
+        }
+      }
+    },
+    "scoop_balls": {
+      "num_steps": 3000,
+      "sub_steps": 50,
+      "stages": {
+        "stage1": {
+          "objective": 17.062601865199287,
+          "rms_percent": 0.0
+        },
+        "stage2": {
+          "objective": 17.03524240210229,
+          "rms_percent": 0.7509754457549959
+        }
+      }
+    },
+    "hammer_extract_nail": {
+      "num_steps": 6000,
+      "sub_steps": 100,
+      "stages": {
+        "stage1": {
+          "objective": 1022.2579985670382,
+          "rms_percent": 0.0
+        },
+        "stage2": {
+          "objective": 1012.3923843832487,
+          "rms_percent": 6.126082290217349
+        }
+      }
+    }
+  }
+}

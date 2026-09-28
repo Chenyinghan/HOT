@@ -1,0 +1,92 @@
+name: hot
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - setuptools>=67,<68
+  - wheel<0.38
+  # RedMax's vendored dependencies still declare pre-3.5 CMake policies.
+  # Keep the vendored simulator compatible with older CMake policies.
+  - cmake=3.19.6
+  - ninja
+
+  - cpuonly=1.0
+  - pytorch=1.7.1
+  - torchvision=0.8.2
+  - torchaudio=0.7.2
+
+  - numpy=1.20.2
+  - mkl=2021.2.0
+  - mkl-service=2.3.0
+  - mkl_fft=1.3.0
+  - mkl_random=1.2.1
+
+  - pillow=8.3.1
+  - olefile=0.46
+  - typing_extensions>=4.7,<4.8
+  - six=1.16.0
+
+  - ca-certificates
+  - certifi
+  - openssl
+  - readline
+  - sqlite
+  - tk
+  - xz
+  - zlib
+
+  - pip:
+      - tomli>=1,<3
+      - setuptools-scm>=6,<8
+
+      - appdirs==1.4.4
+      - attrs==21.2.0
+      - autobahn==21.3.1
+      - automat==20.2.0
+      - backcall==0.2.0
+      - cffi==1.14.6
+      - constantly==15.1.0
+      - cryptography==3.4.7
+      - cycler==0.10.0
+      - decorator==5.0.9
+      - hyperlink==21.0.0
+      - idna==3.2
+      - imageio==2.9.0
+      - importlib-metadata==4.6.1
+      - incremental==21.3.0
+      - ipython==7.25.0
+      - ipython-genutils==0.2.0
+      - jedi==0.18.0
+      - joblib==1.0.1
+      - kiwisolver==1.3.1
+      - matplotlib==3.4.2
+      - matplotlib-inline==0.1.2
+      - meshio==4.4.6
+      - parso==0.8.2
+      - pexpect==4.8.0
+      - pickleshare==0.7.5
+      - prompt-toolkit==3.0.19
+      - ptyprocess==0.7.0
+      - pycparser==2.20
+      - pygments==2.9.0
+      - pyparsing==2.4.7
+      - python-dateutil==2.8.1
+      - pyvista==0.31.3
+      - scikit-learn==0.24.2
+      - scipy==1.5.2
+      - scooby==0.5.7
+      - threadpoolctl==2.2.0
+      - traitlets==5.0.5
+      - transforms3d==0.3.1
+      - twisted==21.2.0
+      - txaio==21.2.1
+      - vtk==9.0.3
+      - wcwidth==0.2.5
+      - wslink==0.2.0
+      - zipp==3.5.0
+      - zope-interface==5.4.0
+
+variables:
+  GLIBC_TUNABLES: glibc.cpu.hwcaps=-SSE4_2,-AVX,-AVX2,-AVX512F

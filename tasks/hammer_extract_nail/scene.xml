@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<redmax model="hammer_extract_nail_scene">
+    <option integrator="BDF2" timestep="1e-3" gravity="0. 0. 0."/>
+
+    <ground pos="0 0 -10" normal="0 0 1"/>
+    <default>
+        <general_primitive_contact kn="5e5" kt="2.5e3" mu="1.5" damping="3e2"/>
+    </default>
+
+    <robot>
+        <link name="env_root">
+            <joint name="env_fixed" type="fixed" pos="10.5 0 -10" quat="1 0 0 0"/>
+            <body name="board" type="cuboid"
+                  pos="8 0 1.0" quat="1 0 0 0"
+                  size="16 36 2.0" density="3.0"
+                  rgba="0.55 0.45 0.35 1"
+                  general_contact_resolution="6 10 2"/>
+
+            <link name="nail_down_link">
+                <joint name="nail_down_joint" type="prismatic" axis="0 0 -1"
+                       pos="8 3 5.2" quat="1 0 0 0"
+                       damping="2.25e2" lim="0 2.5" lim_stiffness="5e6"/>
+                <body name="nail_down" type="cuboid"
+                      pos="0 0 0" quat="1 0 0 0"
+                      size="0.4 0.4 6.0" density="8.0"
+                      rgba="0.95 0.45 0.15 1"
+                      general_contact_resolution="2 2 6"/>
+                <link name="nail_down_cap_link">
+                    <joint name="nail_down_cap_joint" type="fixed"
+                           pos="0 0 3.2" quat="1 0 0 0"/>
+                    <body name="nail_down_cap" type="cuboid"
+                          pos="0 0 0" quat="1 0 0 0"
+                          size="1.8 1.8 0.4" density="8.0"
+                          rgba="1.00 0.20 0.10 1"
+                          general_contact_resolution="4 4 2"/>
+                </link>
+            </link>
+
+            <link name="nail_up_link">
+                <joint name="nail_up_joint" type="prismatic" axis="0 0 1"
+                       pos="8 -12 4.9" quat="1 0 0 0"
+                       damping="2.25e2" lim="0 2.5" lim_stiffness="5e6"/>
+                <body name="nail_up" type="cuboid"
+                      pos="0 0 0" quat="1 0 0 0"
+                      size="0.4 0.4 6.0" density="8.0"
+                      rgba="0.20 0.65 0.95 1"
+                      general_contact_resolution="2 2 6"/>
+                <link name="nail_up_cap_link">
+                    <joint name="nail_up_cap_joint" type="fixed"
+                           pos="0 0 3.2" quat="1 0 0 0"/>
+                    <body name="nail_up_cap" type="cuboid"
+                          pos="0 0 0" quat="1 0 0 0"
+                          size="1.8 1.8 0.4" density="8.0"
+                          rgba="0.10 0.35 1.00 1"
+                          general_contact_resolution="4 4 2"/>
+                </link>
+            </link>
+        </link>
+    </robot>
+
+    <contact>
+        <ground_contact body="board" kn="5e6" kt="5e3" mu="0.9" damping="3e2"/>
+        <ground_contact body="nail_down" kn="5e6" kt="5e3" mu="0.6" damping="3e2"/>
+        <ground_contact body="nail_down_cap" kn="5e6" kt="5e3" mu="0.6" damping="3e2"/>
+        <ground_contact body="nail_up" kn="5e6" kt="5e3" mu="0.6" damping="3e2"/>
+        <ground_contact body="nail_up_cap" kn="5e6" kt="5e3" mu="0.6" damping="3e2"/>
+        <general_primitive_contact general_body="nail_down_cap" primitive_body="board"
+                                   kn="1e6" kt="5e4" mu="0.8" damping="5e3"/>
+        <general_primitive_contact general_body="nail_up_cap" primitive_body="board"
+                                   kn="1e6" kt="5e4" mu="0.8" damping="5e3"/>
+    </contact>
+
+    <variable>
+        <endeffector joint="nail_down_joint" pos="0 0 3.2" radius="0.2"/>
+        <endeffector joint="nail_up_joint" pos="0 0 3.2" radius="0.2"/>
+    </variable>
+</redmax>

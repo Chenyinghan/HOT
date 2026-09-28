@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<redmax model="torque_bolt_reference_model">
+  <option integrator="BDF2" timestep="1e-3" gravity="0 0 0"/>
+  <ground pos="0 0 -10" normal="0 0 1"/>
+  <default>
+    <general_primitive_contact kn="1e3" kt="1e2" mu="0.8" damping="1e1"/>
+  </default>
+
+  <!-- Mission scene: a square revolute screw mounted in a fixed wall. -->
+  <robot>
+    <link name="wall" design_params="0">
+      <joint name="wall_joint" type="fixed" pos="25 0 -3.5" quat="1 0 0 0"/>
+      <body name="wall_body" type="cuboid" size="0.6 2 13" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.55 0.55 0.55 1"/>
+      <link name="nail">
+        <joint name="nail_joint" type="revolute" axis="1 0 0" pos="-2 0 3.5" quat="1 0 0 0" damping="12"/>
+        <body name="nail_head" type="cuboid" size="0.6 0.6 0.6" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.9 0.3 0.1 1"/>
+        <!-- Four collision-free side skins make rotation about X visible
+             without a separate fiducial point. -->
+        <link name="nail_head_pos_y_vis" design_params="0">
+          <joint name="nail_head_pos_y_vis_joint" type="fixed" pos="0 0.305 0" quat="1 0 0 0"/>
+          <body name="nail_head_pos_y_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="0.285714285714 0.009523809524 0.285714285714" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.1 0.1 1" collision="false" ground_contact="false"/>
+        </link>
+        <link name="nail_head_neg_y_vis" design_params="0">
+          <joint name="nail_head_neg_y_vis_joint" type="fixed" pos="0 -0.305 0" quat="1 0 0 0"/>
+          <body name="nail_head_neg_y_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="0.285714285714 0.009523809524 0.285714285714" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.95 0.95 1" collision="false" ground_contact="false"/>
+        </link>
+        <link name="nail_head_pos_z_vis" design_params="0">
+          <joint name="nail_head_pos_z_vis_joint" type="fixed" pos="0 0 0.305" quat="1 0 0 0"/>
+          <body name="nail_head_pos_z_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="0.285714285714 0.285714285714 0.009523809524" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.85 0.1 1" collision="false" ground_contact="false"/>
+        </link>
+        <link name="nail_head_neg_z_vis" design_params="0">
+          <joint name="nail_head_neg_z_vis_joint" type="fixed" pos="0 0 -0.305" quat="1 0 0 0"/>
+          <body name="nail_head_neg_z_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="0.285714285714 0.285714285714 0.009523809524" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.85 0.1 0.85 1" collision="false" ground_contact="false"/>
+        </link>
+        <link name="nail_rod">
+          <joint name="nail_rod_joint" type="fixed" pos="1 0 0" quat="1 0 0 0"/>
+          <body name="nail_rod_body" type="cuboid" size="2.4 0.4 0.4" pos="0 0 0" quat="1 0 0 0" density="0.1" rgba="0.95 0.45 0.15 1"/>
+          <link name="nail_rod_pos_y_vis" design_params="0">
+            <joint name="nail_rod_pos_y_vis_joint" type="fixed" pos="0 0.205 0" quat="1 0 0 0"/>
+            <body name="nail_rod_pos_y_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="1.142857142857 0.009523809524 0.190476190476" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.1 0.1 1" collision="false" ground_contact="false"/>
+          </link>
+          <link name="nail_rod_neg_y_vis" design_params="0">
+            <joint name="nail_rod_neg_y_vis_joint" type="fixed" pos="0 -0.205 0" quat="1 0 0 0"/>
+            <body name="nail_rod_neg_y_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="1.142857142857 0.009523809524 0.190476190476" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.95 0.95 1" collision="false" ground_contact="false"/>
+          </link>
+          <link name="nail_rod_pos_z_vis" design_params="0">
+            <joint name="nail_rod_pos_z_vis_joint" type="fixed" pos="0 0 0.205" quat="1 0 0 0"/>
+            <body name="nail_rod_pos_z_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="1.142857142857 0.190476190476 0.009523809524" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.95 0.85 0.1 1" collision="false" ground_contact="false"/>
+          </link>
+          <link name="nail_rod_neg_z_vis" design_params="0">
+            <joint name="nail_rod_neg_z_vis_joint" type="fixed" pos="0 0 -0.205" quat="1 0 0 0"/>
+            <body name="nail_rod_neg_z_vis_body" type="abstract" mesh="../../assets/library/meshes/cube.obj" scale="1.142857142857 0.190476190476 0.009523809524" pos="0 0 0" quat="1 0 0 0" mass="0" inertia="0 0 0" rgba="0.85 0.1 0.85 1" collision="false" ground_contact="false"/>
+          </link>
+        </link>
+      </link>
+    </link>
+  </robot>
+
+  <!-- Search-equivalent sequence:
+       cube(handle face 5 -> child face 0),
+       small_cuboid(cube face 4 dock 1 -> lower jaw leaf),
+       small_cuboid(cube face 4 dock 2 -> upper jaw leaf).
+       The cube starts one torque function group whose two terminal
+       cuboids happen to be the leaves of this reference.  Search is free to
+       discover a different positive leaf count for the same one function. -->
+  <robot>
+    <link name="freeform_root" design_params="0">
+      <joint name="freeform_root_joint" type="translational" pos="14.8965 0 0" quat="1 0 0 0"/>
+      <body name="body_freeform_root" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="0.05 0.05 0.05" rgba="0 0 0 0" mass="0.0001" inertia="0.0001 0.0001 0.0001" collision="false" ground_contact="false"/>
+      <link name="root_auxiliary_carrier" design_params="0">
+        <joint name="freeform_roll_joint" type="revolute" pos="0 0 0" quat="1 0 0 0" axis="1 0 0" damping="5" lim="-3.141592653589793 3.141592653589793" lim_stiffness="5e6"/>
+        <body name="body_root_auxiliary_carrier" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="0.05 0.05 0.05" rgba="0 0 0 0" mass="0.0001" inertia="0.0001 0.0001 0.0001" collision="false" ground_contact="false"/>
+        <link name="tip_universal_handle_0" design_params="0" asset_id="root/universal_handle" asset_role="fixed_root">
+        <joint name="joint_tip_universal_handle_0" type="fixed" pos="0 0 0" quat="0.707106781187 0 0 0.707106781187"/>
+        <body name="body_tip_universal_handle_0" type="abstract" pos="0 0 0" quat="1 0 0 0" rgba="0.8 0.8 0.2 1" mesh="../../assets/library/meshes/universal_handle.obj" contacts="../../assets/library/contacts/universal_handle.txt" mass="0.0001" inertia="0.0001 0.0001 0.0001" asset_id="root/universal_handle" asset_role="fixed_root" collision="false" ground_contact="false"/>
+        <link name="link_tool_cube_0_1" design_params="47" node_id="1" asset_role="head" asset_id="primitive/cube" start_function_group="true" planar_parent_face="5" planar_child_face="0" planar_dock_id="0" planar_child_dock_id="0" planar_facing="0" planar_parent_barycentric="0.25 0.25 0.25 0.25" planar_child_barycentric="0.25 0.25 0.25 0.25" planar_connection_family="standard_face" planar_endeffector_face="4" planar_endeffector_barycentric="0.25 0.25 0.25 0.25" welded_interface="true" welded_socket_id="face5:dock0" welded_parent_kind="handle" welded_parent_id="tip_universal_handle_0">
+          <joint name="joint_tool_cube_0_1" type="fixed" pos="0 -5.04999999999 0" quat="0.707106781186 -0.707106781186 0 0"/>
+          <body name="body_tool_cube_0_1" type="abstract" pos="0 0 0" quat="1 0 0 0" rgba="0.85 0.15 0.15 1.0" asset_role="head" asset_id="primitive/cube" mesh="../../assets/library/meshes/cube.obj" contacts="../../assets/library/contacts/cube.txt" mass="0.2" inertia="0.2 0.2 0.2"/>
+          <link name="link_tool_small_cuboid_0_2" design_params="47" node_id="2" asset_role="head" asset_id="primitive/small_cuboid" planar_parent_face="4" planar_child_face="0" planar_dock_id="1" planar_child_dock_id="0" planar_facing="0" planar_parent_barycentric="0.0833333333333 0.0833333333333 0.416666666667 0.416666666667" planar_child_barycentric="0.25 0.25 0.25 0.25" planar_connection_family="standard_face" planar_endeffector_face="4" planar_endeffector_barycentric="0.25 0.25 0.25 0.25">
+            <joint name="joint_tool_small_cuboid_0_2" type="fixed" pos="0 0.699999999999 -1.7535" quat="1 0 0 0"/>
+            <body name="body_tool_small_cuboid_0_2" type="abstract" pos="0 0 0" quat="1 0 0 0" rgba="0.15 0.85 0.15 1.0" asset_role="head" asset_id="primitive/small_cuboid" mesh="../../assets/library/meshes/small_cuboid.obj" contacts="../../assets/library/contacts/small_cuboid.txt" mass="0.2" inertia="0.2 0.2 0.2"/>
+          </link>
+          <link name="link_tool_small_cuboid_0_3" design_params="47" node_id="3" asset_role="head" asset_id="primitive/small_cuboid" planar_parent_face="4" planar_child_face="0" planar_dock_id="2" planar_child_dock_id="0" planar_facing="0" planar_parent_barycentric="0.416666666667 0.416666666667 0.0833333333333 0.0833333333333" planar_child_barycentric="0.25 0.25 0.25 0.25" planar_connection_family="standard_face" planar_endeffector_face="4" planar_endeffector_barycentric="0.25 0.25 0.25 0.25">
+            <joint name="joint_tool_small_cuboid_0_3" type="fixed" pos="0 -0.699999999999 -1.7535" quat="1 0 0 0"/>
+            <body name="body_tool_small_cuboid_0_3" type="abstract" pos="0 0 0" quat="1 0 0 0" rgba="0.15 0.85 0.15 1.0" asset_role="head" asset_id="primitive/small_cuboid" mesh="../../assets/library/meshes/small_cuboid.obj" contacts="../../assets/library/contacts/small_cuboid.txt" mass="0.2" inertia="0.2 0.2 0.2"/>
+          </link>
+          <link name="torque_endeffector" design_params="1" function_group_root="1" function_group_leaves="2,3" function_group_leaf_count="2">
+            <joint name="torque_endeffector" type="fixed" pos="0 0 -1.7535" quat="1 0 0 0"/>
+            <body name="body_torque_endeffector" type="cuboid" pos="0 0 0" quat="1 0 0 0" size="0.1 0.1 0.1" mass="0.0001" inertia="0.0001 0.0001 0.0001" rgba="0 0 0 0" collision="false" ground_contact="false"/>
+          </link>
+        </link>
+        </link>
+      </link>
+    </link>
+  </robot>
+
+  <variable>
+    <endeffector joint="nail_joint" pos="0 0 0" radius="0"/>
+    <endeffector joint="nail_joint" pos="1 0 0" radius="0"/>
+    <endeffector joint="torque_endeffector" pos="0 0 0" radius="0"/>
+  </variable>
+  <actuator>
+    <motor joint="freeform_root_joint" ctrl="position" ctrl_range="-5e4 5e4" P="2e3" D="2e2"/>
+    <motor joint="freeform_roll_joint" ctrl="position" ctrl_range="-5e4 5e4" P="2e3" D="2e2"/>
+  </actuator>
+  <contact>
+    <ground_contact body="body_tool_cube_0_1" kn="5e4" kt="1e3" mu="0.35" damping="5e2"/>
+    <ground_contact body="body_tool_small_cuboid_0_2" kn="5e4" kt="1e3" mu="0.35" damping="5e2"/>
+    <ground_contact body="body_tool_small_cuboid_0_3" kn="5e4" kt="1e3" mu="0.35" damping="5e2"/>
+    <ground_contact body="nail_head" kn="1e6" kt="1e5" mu="1.2" damping="1e3"/>
+    <ground_contact body="nail_rod_body" kn="1e6" kt="1e5" mu="1.2" damping="1e3"/>
+    <general_primitive_contact general_body="body_tool_cube_0_1" primitive_body="nail_head" kn="100000.0" kt="100000.0" mu="2.5" damping="10.0" smoothing="0.02" velocity_smoothing="0.05"/>
+    <general_primitive_contact general_body="body_tool_cube_0_1" primitive_body="nail_rod_body" kn="100000.0" kt="100000.0" mu="2.5" damping="10.0" smoothing="0.02" velocity_smoothing="0.05"/>
+    <general_primitive_contact general_body="body_tool_cube_0_1" primitive_body="wall_body" kn="100000.0" kt="100000.0" mu="2.5" damping="10.0" smoothing="0.02" velocity_smoothing="0.05"/>
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_2" primitive_body="nail_head" kn="100000.0" kt="100000.0" mu="2.5" damping="10.0" smoothing="0.02" velocity_smoothing="0.05"/>
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_2" primitive_body="nail_rod_body" kn="100000.0" kt="100000.0" mu="2.5" damping="10.0" smoothing="0.02" velocity_smoothing="0.05"/>
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_2" primitive_body="wall_body" kn="100000.0" kt="100000.0" mu="2.5" damping="10.0" smoothing="0.02" velocity_smoothing="0.05"/>
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_3" primitive_body="nail_head" kn="100000.0" kt="100000.0" mu="2.5" damping="10.0" smoothing="0.02" velocity_smoothing="0.05"/>
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_3" primitive_body="nail_rod_body" kn="100000.0" kt="100000.0" mu="2.5" damping="10.0" smoothing="0.02" velocity_smoothing="0.05"/>
+    <general_primitive_contact general_body="body_tool_small_cuboid_0_3" primitive_body="wall_body" kn="100000.0" kt="100000.0" mu="2.5" damping="10.0" smoothing="0.02" velocity_smoothing="0.05"/>
+  </contact>
+</redmax>

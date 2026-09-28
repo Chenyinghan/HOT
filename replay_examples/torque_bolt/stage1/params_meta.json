@@ -1,0 +1,19 @@
+{
+  "action_dim": 160,
+  "action_parameterization": "tanh_legacy_v1",
+  "action_slice": [
+    0,
+    160
+  ],
+  "morphology_dim": 0,
+  "morphology_layout": null,
+  "morphology_layout_fingerprint": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+  "morphology_parameterization": null,
+  "morphology_slice": [
+    160,
+    160
+  ],
+  "parameter_artifact_schema": "bilevel_joint_parameters",
+  "schema_version": 1,
+  "total_dim": 160
+}

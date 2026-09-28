@@ -1,0 +1,755 @@
+{
+  "schema_version": 1,
+  "catalog_id": "hot.shared_assets",
+  "catalog_version": 5,
+  "assets": [
+    {
+      "id": "root/universal_handle",
+      "aliases": [
+        "handle_head/universal_handle"
+      ],
+      "role": "fixed_root",
+      "searchable": false,
+      "tags": [
+        "root",
+        "handle",
+        "fixed"
+      ],
+      "resources": {
+        "mesh": {
+          "path": "assets/library/meshes/universal_handle.obj"
+        },
+        "cage": {
+          "path": "assets/library/cages/universal_handle.txt"
+        },
+        "contacts": {
+          "path": "assets/library/contacts/universal_handle.txt"
+        },
+        "contact_ids": {
+          "path": "assets/library/contacts/universal_handle_id.npy"
+        },
+        "weights": {
+          "path": "assets/library/weights/universal_handle.npy"
+        }
+      },
+      "out_docks": {
+        "0": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.5,
+              0.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "1": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.5,
+              0.0,
+              0.0,
+              0.5
+            ]
+          }
+        ],
+        "3": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.5,
+              0.0,
+              0.0,
+              0.5
+            ]
+          }
+        ],
+        "4": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.5,
+              0.5,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "5": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ]
+          }
+        ]
+      },
+      "in_docks": {},
+      "metadata": {
+        "blocked_face": 2,
+        "grip_frame": "geometric_center",
+        "specification": {
+          "generator_version": 1,
+          "geometry": {
+            "shape": "faceted_cylinder",
+            "canonical_axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "length": 8.0,
+            "radius": 0.45,
+            "half_extents": [
+              0.45,
+              4.0,
+              0.45
+            ],
+            "radial_segments": 16,
+            "axial_segments": 8,
+            "vertex_count": 146,
+            "face_count": 288
+          },
+          "dynamics": {
+            "mass": 1.0,
+            "inertia": [
+              5.383958333333333,
+              0.10125,
+              5.383958333333333
+            ],
+            "inertia_model": "solid_cylinder_about_center"
+          },
+          "interfaces": {
+            "positive_end": {
+              "position": [
+                0.0,
+                4.0,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "negative_end": {
+              "position": [
+                0.0,
+                -4.0,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            }
+          },
+          "collision_policy": {
+            "upper_structure_collision": true,
+            "default_task_physics_collision": false
+          },
+          "contact_count": 96,
+          "weights_shape": [
+            56,
+            146
+          ]
+        }
+      }
+    },
+    {
+      "id": "primitive/cube",
+      "aliases": [
+        "sweep_balls/cube"
+      ],
+      "role": "head_primitive",
+      "searchable": true,
+      "tags": [
+        "head",
+        "primitive",
+        "connector"
+      ],
+      "resources": {
+        "mesh": {
+          "path": "assets/library/meshes/cube.obj"
+        },
+        "cage": {
+          "path": "assets/library/cages/cube.txt"
+        },
+        "contacts": {
+          "path": "assets/library/contacts/cube.txt"
+        },
+        "contact_ids": {
+          "path": "assets/library/contacts/cube_id.npy"
+        },
+        "weights": {
+          "path": "assets/library/weights/cube.npy"
+        }
+      },
+      "out_docks": {
+        "1": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ]
+          },
+          {
+            "id": 1,
+            "barycentric": [
+              0.08333333333333337,
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663
+            ]
+          },
+          {
+            "id": 2,
+            "barycentric": [
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334
+            ]
+          },
+          {
+            "id": 3,
+            "barycentric": [
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334,
+              0.41666666666666663
+            ]
+          },
+          {
+            "id": 4,
+            "barycentric": [
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333337
+            ]
+          }
+        ],
+        "2": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ]
+          },
+          {
+            "id": 1,
+            "barycentric": [
+              0.08333333333333337,
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663
+            ]
+          },
+          {
+            "id": 2,
+            "barycentric": [
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334
+            ]
+          },
+          {
+            "id": 3,
+            "barycentric": [
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334,
+              0.41666666666666663
+            ]
+          },
+          {
+            "id": 4,
+            "barycentric": [
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333337
+            ]
+          }
+        ],
+        "3": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ]
+          },
+          {
+            "id": 1,
+            "barycentric": [
+              0.08333333333333337,
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663
+            ]
+          },
+          {
+            "id": 2,
+            "barycentric": [
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334
+            ]
+          },
+          {
+            "id": 3,
+            "barycentric": [
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334,
+              0.41666666666666663
+            ]
+          },
+          {
+            "id": 4,
+            "barycentric": [
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333337
+            ]
+          }
+        ],
+        "4": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ]
+          },
+          {
+            "id": 1,
+            "barycentric": [
+              0.08333333333333337,
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663
+            ]
+          },
+          {
+            "id": 2,
+            "barycentric": [
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334
+            ]
+          },
+          {
+            "id": 3,
+            "barycentric": [
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334,
+              0.41666666666666663
+            ]
+          },
+          {
+            "id": 4,
+            "barycentric": [
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333337
+            ]
+          }
+        ],
+        "5": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ]
+          },
+          {
+            "id": 1,
+            "barycentric": [
+              0.08333333333333337,
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663
+            ]
+          },
+          {
+            "id": 2,
+            "barycentric": [
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334
+            ]
+          },
+          {
+            "id": 3,
+            "barycentric": [
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334,
+              0.41666666666666663
+            ]
+          },
+          {
+            "id": 4,
+            "barycentric": [
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333337
+            ]
+          }
+        ]
+      },
+      "in_docks": {
+        "0": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ],
+            "facing_options": [
+              0
+            ]
+          },
+          {
+            "id": 1,
+            "barycentric": [
+              0.08333333333333337,
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663
+            ],
+            "facing_options": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 2,
+            "barycentric": [
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334
+            ],
+            "facing_options": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 3,
+            "barycentric": [
+              0.41666666666666663,
+              0.08333333333333334,
+              0.08333333333333334,
+              0.41666666666666663
+            ],
+            "facing_options": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "id": 4,
+            "barycentric": [
+              0.08333333333333337,
+              0.41666666666666663,
+              0.41666666666666663,
+              0.08333333333333337
+            ],
+            "facing_options": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      "metadata": {}
+    },
+    {
+      "id": "primitive/panel",
+      "aliases": [
+        "sweep_balls/thin"
+      ],
+      "role": "head_primitive",
+      "searchable": true,
+      "tags": [
+        "head",
+        "primitive",
+        "panel"
+      ],
+      "resources": {
+        "mesh": {
+          "path": "assets/library/meshes/thin.obj"
+        },
+        "cage": {
+          "path": "assets/library/cages/thin.txt"
+        },
+        "contacts": {
+          "path": "assets/library/contacts/thin.txt"
+        },
+        "contact_ids": {
+          "path": "assets/library/contacts/thin_id.npy"
+        },
+        "weights": {
+          "path": "assets/library/weights/thin.npy"
+        }
+      },
+      "out_docks": {
+        "1": [
+          {
+            "id": 1,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ],
+            "edge": true,
+            "edge_tangent_axis": 2,
+            "panel_normal_axis": 1,
+            "edge_profile": "panel_edge"
+          }
+        ],
+        "3": [
+          {
+            "id": 2,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ],
+            "edge": true,
+            "edge_tangent_axis": 2,
+            "panel_normal_axis": 1,
+            "edge_profile": "panel_edge"
+          }
+        ],
+        "4": [
+          {
+            "id": 3,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ],
+            "edge": true,
+            "edge_tangent_axis": 0,
+            "panel_normal_axis": 1,
+            "edge_profile": "panel_edge"
+          }
+        ]
+      },
+      "in_docks": {
+        "0": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ],
+            "facing_options": [
+              0,
+              1
+            ],
+            "edge": true,
+            "edge_tangent_axis": 0,
+            "panel_normal_axis": 1,
+            "edge_profile": "panel_edge"
+          }
+        ]
+      },
+      "metadata": {}
+    },
+    {
+      "id": "primitive/small_cuboid",
+      "aliases": [],
+      "role": "head_primitive",
+      "searchable": true,
+      "tags": [
+        "head",
+        "primitive",
+        "connector",
+        "small"
+      ],
+      "resources": {
+        "mesh": {
+          "path": "assets/library/meshes/small_cuboid.obj"
+        },
+        "cage": {
+          "path": "assets/library/cages/small_cuboid.txt"
+        },
+        "contacts": {
+          "path": "assets/library/contacts/small_cuboid.txt"
+        },
+        "contact_ids": {
+          "path": "assets/library/contacts/small_cuboid_id.npy"
+        },
+        "weights": {
+          "path": "assets/library/weights/small_cuboid.npy"
+        }
+      },
+      "out_docks": {
+        "4": [
+          {
+            "id": 1,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ]
+          }
+        ]
+      },
+      "in_docks": {
+        "0": [
+          {
+            "id": 0,
+            "barycentric": [
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ],
+            "facing_options": [
+              0
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "specification": {
+          "generator_version": 1,
+          "reference": {
+            "resource_name": "cube",
+            "mesh_sha256": "ef630ca0722a398738686896d666f90eca209758f4a1efd0c7b158f7817d4bfb",
+            "extents": [
+              2.1,
+              2.1,
+              2.1
+            ],
+            "scale": [
+              0.33,
+              0.33,
+              0.67
+            ]
+          },
+          "geometry": {
+            "shape": "cuboid",
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extents": [
+              0.6930000000000001,
+              0.6930000000000001,
+              1.4070000000000003
+            ],
+            "half_extents": [
+              0.34650000000000003,
+              0.34650000000000003,
+              0.7035000000000001
+            ],
+            "face_order": [
+              "+Z",
+              "+X",
+              "+Y",
+              "-X",
+              "-Z",
+              "-Y"
+            ],
+            "axis_samples": [
+              4,
+              4,
+              6
+            ],
+            "face_resolutions": {
+              "+Z": [
+                4,
+                4
+              ],
+              "+X": [
+                4,
+                6
+              ],
+              "+Y": [
+                4,
+                6
+              ],
+              "-X": [
+                4,
+                6
+              ],
+              "-Z": [
+                4,
+                4
+              ],
+              "-Y": [
+                4,
+                6
+              ]
+            },
+            "vertex_count": 128,
+            "face_count": 156
+          },
+          "contacts": {
+            "sampling": "symmetric_unique_surface_lattice",
+            "target_count": 80,
+            "count": 80,
+            "actual_density": 16.45852800685991
+          },
+          "cage_handle_count": 14,
+          "weights_shape": [
+            56,
+            128
+          ]
+        }
+      }
+    }
+  ]
+}
