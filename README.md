@@ -139,13 +139,11 @@ The demo defaults to three Head links, one functional group, the full asset libr
 If you find our work helpful, please consider citing it: 
 
 ```bibtex
-@misc{chen2026hot,
-  title         = {Robot Tool Design from Scratch via Behavior-Aware Hierarchical Optimization},
-  author        = {Chen, Yinghan and Tian, Xiyao and Dai, Yizan and Li, Yuyang and Zhu, Yixin},
-  year          = {2026},
-  eprint        = {2609.35479},
-  archivePrefix = {arXiv},
-  url           = {https://arxiv.org/abs/2609.35479}
+@article{chen2026robot,
+  title   = {Robot Tool Design from Scratch via Behavior-Aware Hierarchical Optimization},
+  author  = {Chen, Yinghan and Tian, Xiyao and Dai, Yizan and Li, Yuyang and Zhu, Yixin},
+  journal = {arXiv preprint arXiv:2609.35479},
+  year    = {2026}
 }
 ```
 
