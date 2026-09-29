@@ -2,12 +2,13 @@
 
 **HOT: Hierarchical Optimization for Tool design**
 
-<b>Yinghan Chen <sup>\*</sup>, Xiyao Tian <sup>\*</sup>, Yizan Dai <sup></sup>, Yuyang Li <sup>†</sup>, and Yixin Zhu <sup>†</sup></b>
+<b><a href="https://yinghanchen.com">Yinghan Chen</a> <sup>\*</sup>, <a href="https://www.xiyaotian.tech">Xiyao Tian</a> <sup>\*</sup>, <a href="https://www.tongclass.ac.cn/members/daiyizan">Yizan Dai</a>, <a href="https://yuyangli.com">Yuyang Li</a> <sup>†</sup>, and <a href="https://yzhu.io/">Yixin Zhu</a> <sup>†</sup></b>
 
 <sup>*</sup> Equal contributors · <sup>†</sup> Corresponding authors
 
 
 [🌐 Project website](https://hot.yinghanchen.com) |
+[📄 arXiv](http://arxiv.org/abs/2609.35479) |
 [📹 Video](https://player.vimeo.com/video/1230686259)
 
 ![HOT designs tools for four physical tasks](figures/hot_teaser.png)
@@ -139,9 +140,12 @@ If you find our work helpful, please consider citing it:
 
 ```bibtex
 @misc{chen2026hot,
-  title  = {Robot Tool Design from Scratch via Behavior-Aware Hierarchical Optimization},
-  author = {Chen, Yinghan and Tian, Xiyao and Dai, Yizan and Li, Yuyang and Zhu, Yixin},
-  year   = {2026}
+  title         = {Robot Tool Design from Scratch via Behavior-Aware Hierarchical Optimization},
+  author        = {Chen, Yinghan and Tian, Xiyao and Dai, Yizan and Li, Yuyang and Zhu, Yixin},
+  year          = {2026},
+  eprint        = {2609.35479},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2609.35479}
 }
 ```
 
